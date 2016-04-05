@@ -1,0 +1,23 @@
+ - include: check_mysql.yml
+
+ - include: install_mysql.yml
+   when: mysql_installed == "{{0}}"
+
+ - include: start_mysql.yml
+   when: mysql_installed == "{{0}}"
+
+ - include: install_mysql_python.yml
+   when: mysql_installed == "{{0}}"
+
+ - include: install_mysql_db1.yml
+   #hosts: s1
+   when: mysql_installed == "{{0}}"
+
+ - include: install_mysql_db2.yml
+   #hosts: s2
+   when: mysql_installed == "{{0}}"
+
+ - include: remove_mysql.yml
+   when: mysql_installed == "{{1}}"
+
+

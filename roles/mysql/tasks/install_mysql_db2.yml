@@ -1,0 +1,10 @@
+---
+- name: Create mysql db2
+  become: yes
+  mysql_db: name=mytestdb2 state=present
+  delegate_to: 10.6.193.110
+
+- name: Create mysql user2
+  mysql_user: name=mytestuser2 password=12345 priv=*.*:ALL state=present
+  delegate_to: 10.6.193.110
+

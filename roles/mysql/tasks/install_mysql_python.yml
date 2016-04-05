@@ -1,0 +1,5 @@
+---
+- name: Install mysql python
+  become: yes
+  yum: name=MySQL-python.x86_64 state=latest
+

@@ -1,0 +1,19 @@
+---
+  - name: check if mysql installed
+    script: newcheck_mysql.sh
+    become: yes
+    register: result
+    ignore_errors: yes
+
+  - debug: var=result.rc
+
+  - set_fact: 
+        mysql_installed: "{{1}}"
+    when: result.rc==1
+  
+  - set_fact: 
+        mysql_installed: "{{0}}"
+    when: result.rc==0
+
+  - debug: var=mysql_installed
+ 

@@ -1,0 +1,13 @@
+---
+- name: stop mysql
+  become: yes
+  script: stop_mysql.sh
+
+- name: remove mysql
+  become: yes
+  yum: name=mysql-server state=absent
+
+- name: remove mysql python
+  become: yes
+  yum: name=MySQL-python.x86_64 state=absent
+
